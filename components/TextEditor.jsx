@@ -309,7 +309,7 @@ export default function TextEditor() {
     content: "",
     tag: "",
     color: "",
-    id: "",
+    id: null,
   });
 
   let setEditorProps = (props) => {
@@ -335,7 +335,7 @@ export default function TextEditor() {
             id: props.id,
           })
         }
-        className="flex mb-4 border-b-2 pb-2 hover:cursor-pointer border-0 p-0 flex-col ml-6 justify-start"
+        className="flex mb-4 border-b-2 pb-2 hover:cursor-pointer border-0 p-0 flex-col mx-6 lg:ml-6 justify-start"
       >
         <div
           className={
@@ -382,7 +382,7 @@ export default function TextEditor() {
         <div
           className={
             "flex items-center lg:items-start flex-col lg:pl-5 lg:ml-6 fixed w-screen lg:border-l-2 top-12 pt-2 lg:top-5 lg:right-0 lg:w-full bg-base-100 min-h-screen lg:relative lg:pr-5" +
-            (props.show ? " " : " hidden")
+            (props.show ? " " : " hidden lg:flex")
           }
         >
           <div className="flex items-start justify-start">
@@ -593,7 +593,7 @@ export default function TextEditor() {
             content={editorProps.content}
             tag={editorProps.tag}
             color={editorProps.color}
-            id={editorProps.id ? editorProps.id : null}
+            id={editorProps.id}
             addNote={newFileHandlerSave}
             updateNote={editNoteHandler}
             deleteNote={deleteNoteHandler}
