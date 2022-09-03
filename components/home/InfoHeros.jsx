@@ -1,0 +1,94 @@
+import TemplateHero from "../templates/TemplateHero";
+import Separator from "../Separator";
+import AiFillCloud from "../icons/AiFillCloud";
+import GoMarkdown from "../icons/GoMarkdown";
+import AiOutlineFileText from "../icons/AiOutlineFileText";
+import VscSourceControl from "../icons/VscSourceControl";
+import FaRegGrinTongue from "../icons/FaRegGrinTongue";
+import AiOutlineMobile from "../icons/AiOutlineMobile";
+
+export function HomeHero() {
+  const content = () => (
+    <>
+      <h1 className="text-5xl font-elmessiri font-bold">Stay Focused,</h1>
+      <h1 className="text-5xl font-elmessiri font-bold">Stay Simple.</h1>
+    </>
+  );
+  return (
+    <>
+      <TemplateHero
+        component={content}
+        content="An open source note-taking web application that has the only needed features, so you can stay focused on noting."
+      />
+      <div className="flex justify-center btn-ghost btn">Get Started</div>
+      <Separator />
+    </>
+  );
+}
+
+export function FeaturesHero() {
+  const content = {
+    1: {
+      title: "Use it anywhere.",
+      icon: AiOutlineMobile,
+      content:
+        "You can use it on your phone, tablet, or desktop. No matter where you are, you can use it, just needs a browser.",
+    },
+    2: {
+      title: "Markdown support.",
+      icon: GoMarkdown,
+      content:
+        "You can use markdown to write your notes. You can use markdown to write your notes.",
+    },
+    3: {
+      title: "Export to raw text.",
+      icon: AiOutlineFileText,
+      content: "You can export your notes to raw text and import them later.",
+    },
+    4: {
+      title: "Open source.",
+      icon: VscSourceControl,
+      content:
+        "It's open source, so you can use it entirely for free, without ads, and contribute to the project.",
+    },
+    5: {
+      title: "Keep it simple, stupid.",
+      icon: FaRegGrinTongue,
+      content: "It's simple, so you won't get distracted by bloated features.",
+    },
+    6: {
+      title: "Sync with cloud.",
+      icon: AiFillCloud,
+      content:
+        "Notes automatically synced with cloud, you don't need to worry about losing your notes.",
+    },
+  };
+  const box = (props) => (
+    <div className="flex flex-col self-stretch justify-center mb-6 shadow-xl h-52 md:h-36  lg:h-48 lg:w-1/3">
+      <div className="flex flex-row items-center space-x-2 justify-center">
+        {props.icon({
+          width: "50px",
+        })}
+        <h1 className="text-3xl font-bold mb-2">{props.title}</h1>
+      </div>
+      <div className=" px-12">{props.content}</div>
+    </div>
+  );
+  return (
+    <>
+      <h1 className="text-5xl mb-5 flex justify-center items-center">
+        Features
+      </h1>
+      <div className="flex flex-col lg:flex-row lg:flex-wrap mx-12 first-letter:justify-center items-center content-around">
+        {Object.keys(content).map((key) =>
+          box({
+            key: key,
+            title: content[key].title,
+            icon: content[key].icon,
+            content: content[key].content,
+          })
+        )}
+      </div>
+    </>
+  );
+}
