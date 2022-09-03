@@ -63,17 +63,35 @@ export default function TextEditor() {
     );
     return (
       <div>
-        <div className="fixed top-0 bg-base-100 opacity-80 flex justify-center lg:hidden shadow-sm w-screen">
-          <button
-            onClick={toggleShow}
-            className="items-center rounded-lg w-12 h-12 flex justify-center"
-          >
-            {show ? (
-              <AiOutlineClose className="transition-all" />
-            ) : (
-              <AiOutlineMenu className="transition-all" />
-            )}
-          </button>
+        <div className="fixed top-0 bg-base-100 flex items-center justify-center space-x-12 lg:hidden shadow-sm w-screen">
+          {props.showEditor ? (
+            <button
+              className="flex items-center rounded-lg w-12 h-12 justify-center"
+              onClick={() => {
+                props.setShowEditor(false);
+                props.setEditorProps({
+                  title: "",
+                  content: "",
+                  tag: "",
+                  color: "",
+                  id: null,
+                });
+              }}
+            >
+              <AiOutlineClose />
+            </button>
+          ) : (
+            <button
+              onClick={toggleShow}
+              className="items-center rounded-lg w-12 h-12 flex justify-center"
+            >
+              {show ? (
+                <AiOutlineClose className="transition-all" />
+              ) : (
+                <AiOutlineMenu className="transition-all" />
+              )}
+            </button>
+          )}
         </div>
         <div className="item left-0 top-0 fixed transition-all">
           <button
@@ -129,6 +147,7 @@ export default function TextEditor() {
   const [activeName, setActiveName] = useState("All"); // Name filter
   const [filteredNotesByTag, setFilteredNotesByTag] = useState([]);
   const [ToastContent, setToastContent] = useState(null);
+  const [showTextEditor, setShowTextEditor] = useState(false);
 
   useEffect(() => {
     getNotes().then((data) => {
@@ -285,13 +304,20 @@ export default function TextEditor() {
     });
   };
   let [showEditor, setShowEditor] = useState(false);
-  let [editorProps, setEditorProps] = useState({
+  let [editorProps, setEditorPropsHandler] = useState({
     title: "",
     content: "",
     tag: "",
     color: "",
     id: "",
   });
+
+  let setEditorProps = (props) => {
+    setEditorPropsHandler(props);
+    if (!showEditor) {
+      setShowEditor(true);
+    }
+  };
 
   const NoteBox = (props) => {
     const preview = formatContent(props.content, 50);
@@ -346,24 +372,30 @@ export default function TextEditor() {
     const [actualColor, setActualColor] = useState(
       props.color || "bg-gray-200"
     );
-    const [actualTag, setActualTag] = useState(props.tag || "None");
+    const [actualTag, setActualTag] = useState(props.tag || "General");
     const [actualContent, setActualContent] = useState(props.content || "");
     const [actualTitle, setActualTitle] = useState(
       props.noteTitle || "Your Title"
     );
     return (
       <>
-        <div className="flex flex-col pl-5 ml-2 border-l-2 right-0 w-full pr-5">
+        <div
+          className={
+            "flex items-center lg:items-start flex-col lg:pl-5 lg:ml-6 fixed w-screen lg:border-l-2 top-12 pt-2 lg:top-5 lg:right-0 lg:w-full bg-base-100 min-h-screen lg:relative lg:pr-5" +
+            (props.show ? " " : " hidden")
+          }
+        >
           <div className="flex items-start justify-start">
             <div className="dropdown">
               <div
                 tabIndex={0}
                 className={
-                  "py-1 hover:cursor-pointer rounded-sm w-20 font-light text-sm text-center " +
+                  "py-1 tooltip hover:cursor-pointer rounded-sm w-20 font-light text-sm text-center " +
                   actualColor
                 }
+                data-tip={formatContent(actualTag, 50)}
               >
-                {actualTag === "None" ? "None" : formatContent(actualTag, 10)}
+                {formatContent(actualTag, 10)}
               </div>
               <ul
                 tabIndex="0"
@@ -433,13 +465,16 @@ export default function TextEditor() {
             />
           </div>
           <textarea
-            className="textarea resize-none text-md w-full h-1/5 mb-3"
+            className="textarea resize-none text-md w-full h-52 lg:h-1/5 mb-3 mx-12 lg:m-0"
             placeholder="Content"
             onChange={(e) => setActualContent(e.target.value)}
             defaultValue={actualContent}
           />
           <div className="divider">OUTPUT</div>
-          <div data-color-mode="light" className="overflow-y-auto  h-1/2">
+          <div
+            data-color-mode="light"
+            className="lg:overflow-y-auto h-1/2 prose lg:prose-lg overflow-y-scroll px-2"
+          >
             <Markdown source={"# " + actualTitle + "\n" + actualContent} />
           </div>
           <div className="flex flex-row fixed mb-2 bottom-0 items-end right-0 justify-end">
@@ -562,6 +597,7 @@ export default function TextEditor() {
             addNote={newFileHandlerSave}
             updateNote={editNoteHandler}
             deleteNote={deleteNoteHandler}
+            show={showEditor}
           />
         </div>
       </div>
@@ -570,6 +606,9 @@ export default function TextEditor() {
         colors={tagsWithColors}
         method={filterNotes}
         tags={uniqueTags}
+        setShowEditor={setShowEditor}
+        showEditor={showEditor}
+        setEditorProps={setEditorProps}
       />
       {ToastContent && (
         <div className="toast">
