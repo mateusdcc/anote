@@ -6,6 +6,7 @@ import AiOutlineFileText from "../icons/AiOutlineFileText";
 import VscSourceControl from "../icons/VscSourceControl";
 import FaRegGrinTongue from "../icons/FaRegGrinTongue";
 import AiOutlineMobile from "../icons/AiOutlineMobile";
+import Link from "next/link";
 
 export function HomeHero() {
   const content = () => (
@@ -18,9 +19,11 @@ export function HomeHero() {
     <>
       <TemplateHero
         component={content}
-        content="An open source note-taking web application that has the only needed features, so you can stay focused on noting."
+        content="An open source note-taking web application that has only the needed features, so you can stay focused on noting."
       />
-      <div className="flex justify-center btn-ghost btn">Get Started</div>
+      <Link href="/register">
+        <div className="flex justify-center btn-ghost btn">Get Started</div>
+      </Link>
       <Separator />
     </>
   );
