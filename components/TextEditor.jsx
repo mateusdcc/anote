@@ -335,7 +335,7 @@ export default function TextEditor() {
             id: props.id,
           })
         }
-        className="flex mb-4 border-b-2 pb-2 hover:cursor-pointer border-0 p-0 flex-col mx-6 lg:ml-6 justify-start"
+        className="flex mb-4 border-b-2 pb-2 hover:cursor-pointer border-0 p-0 flex-col mx-6 lg:ml-6 lg:mr-0 justify-start"
       >
         <div
           className={
