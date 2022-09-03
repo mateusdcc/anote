@@ -11,6 +11,9 @@ export default function Register() {
   const handleRegister = async (email, password) => {
     try {
       setLoading(true);
+      if (!email || !password) {
+        setMessage("Please enter your email and password");
+      }
       const { error } = await supabase.auth.signUp({ email, password });
       if (error) throw error;
       setTimeout(() => {
