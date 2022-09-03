@@ -222,12 +222,19 @@ export default function TextEditor() {
     if (error) {
       throw new Error(error.message);
     }
-    setNotes((prevNotes) => {
-      return prevNotes.filter((note) => note.id !== id);
+
+    setToastContent("Note deleted");
+    setEditorProps({
+      title: "",
+      content: "",
+      tag: "",
+      color: "",
+      id: null,
     });
-    setNonFilteredNotes((prevNotes) => {
-      return prevNotes.filter((note) => note.id !== id);
-    });
+    setTimeout(() => {
+      setToastContent(null);
+    }, 1000);
+    refreshNotes();
   };
 
   const editNoteHandler = async (props) => {
@@ -554,6 +561,7 @@ export default function TextEditor() {
             id={editorProps.id ? editorProps.id : null}
             addNote={newFileHandlerSave}
             updateNote={editNoteHandler}
+            deleteNote={deleteNoteHandler}
           />
         </div>
       </div>
