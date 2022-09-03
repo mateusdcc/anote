@@ -44,9 +44,10 @@ export function FeaturesHero() {
         "You can use markdown to write your notes. You can use markdown to write your notes.",
     },
     3: {
-      title: "Export to raw text.",
+      title: "Tag Oriented.",
       icon: AiOutlineFileText,
-      content: "You can export your notes to raw text and import them later.",
+      content:
+        "Organize your notes in tags. Studying Javascript? Create a tag for it.",
     },
     4: {
       title: "Open source.",
