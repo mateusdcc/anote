@@ -381,7 +381,7 @@ export default function TextEditor() {
       <>
         <div
           className={
-            "flex items-center lg:items-start flex-col lg:pl-5 lg:ml-6 fixed w-screen lg:border-l-2 top-12 pt-2 lg:top-5 lg:right-0 lg:w-full bg-base-100 min-h-screen lg:relative lg:pr-5" +
+            "flex items-center lg:items-start flex-col lg:pl-5 lg:ml-6 absolute w-screen lg:border-l-2 top-12 pt-2 lg:top-5 lg:right-0 lg:w-full bg-base-100 min-h-screen lg:relative lg:pr-5" +
             (props.show ? " " : " hidden lg:flex")
           }
         >
@@ -497,14 +497,14 @@ export default function TextEditor() {
                   });
                 }
               }}
-              className="btn btn-ghost"
+              className="btn btn-outline mr-2"
             >
               Save
             </button>
             {props.id && (
               <button
                 onClick={() => props.deleteNote(props.id)}
-                className="btn btn-ghost"
+                className="btn btn-outline mr-2"
               >
                 Delete
               </button>
