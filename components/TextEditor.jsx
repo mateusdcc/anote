@@ -473,7 +473,7 @@ export default function TextEditor() {
           <div className="divider">OUTPUT</div>
           <div
             data-color-mode="light"
-            className="lg:overflow-y-auto h-1/2 prose lg:prose-lg overflow-y-scroll px-2"
+            className="lg:overflow-y-auto h-1/2 w-full overflow-y-scroll px-2"
           >
             <Markdown source={"# " + actualTitle + "\n" + actualContent} />
           </div>
