@@ -6,8 +6,11 @@ import { useEffect, useState } from "react";
 export default function Navbar() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   useEffect(() => {
-    const user = supabase.auth.user();
-    setUserLoggedIn(!!user);
+    setUserLoggedIn(supabase.auth.user() !== null);
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setUserLoggedIn(session !== null);
+    });
   }, []);
 
   return (
