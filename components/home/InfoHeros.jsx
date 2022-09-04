@@ -31,6 +31,19 @@ export function HomeHero() {
   );
 }
 
+export function AboutHero(props) {
+  const content = () => (
+    <>
+      <h1 className="text-5xl font-elmessiri font-bold">{props.title}</h1>
+    </>
+  );
+  return (
+    <>
+      <TemplateHero component={content} content={props.content} />
+    </>
+  );
+}
+
 export function FeaturesHero() {
   const content = {
     1: {
@@ -51,7 +64,7 @@ export function FeaturesHero() {
         <GoMarkdown width="30px" height="40px" className="mb-2 text-gray-500" />
       ),
       content:
-        "You can use markdown to write your notes. You can use markdown to write your notes.",
+        "You can use markdown to write your notes with our powerful editor.",
     },
     3: {
       title: "Tag Oriented.",
@@ -130,6 +143,7 @@ export function FeaturesHero() {
           })
         )}
       </div>
+      <Separator />
     </>
   );
 }
