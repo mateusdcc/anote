@@ -151,14 +151,9 @@ export default function TextEditor() {
     supabase.auth.onAuthStateChange((_event, session) => {
       if (!session) {
         setToastContent("You have been logged out");
-      } else {
-        setToastContent(
-          "You have been logged back in. Refreshing your page..."
-        );
         setTimeout(() => {
           setToastContent(null);
-          window.location.reload();
-        }, 2000);
+        }, 3000);
       }
     });
     getNotes().then((data) => {
