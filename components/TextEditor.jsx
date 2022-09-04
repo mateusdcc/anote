@@ -465,7 +465,7 @@ export default function TextEditor() {
             />
           </div>
           <textarea
-            className="textarea resize-none text-md w-full h-52 lg:h-1/5 mb-3 mx-12 lg:m-0"
+            className="textarea resize-none text-md w-full h-52 max-h-52 lg:h-1/5 mb-3 mx-12 lg:m-0"
             placeholder="Content"
             onChange={(e) => setActualContent(e.target.value)}
             defaultValue={actualContent}
@@ -473,7 +473,7 @@ export default function TextEditor() {
           <div className="divider">OUTPUT</div>
           <div
             data-color-mode="light"
-            className="lg:overflow-y-auto h-1/2 w-full overflow-y-scroll px-2"
+            className="lg:overflow-y-auto h-1/2   max-h-screen w-full overflow-y-scroll px-2"
           >
             <Markdown source={"# " + actualTitle + "\n" + actualContent} />
           </div>
