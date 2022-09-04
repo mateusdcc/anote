@@ -363,16 +363,28 @@ export default function TextEditor() {
     const colors = {
       red: "bg-red-200",
       darkerred: "bg-red-300",
+      rose: "bg-rose-200",
+      darkerrrose: "bg-rose-300",
+      pink: "bg-pink-200",
+      darkerpink: "bg-pink-300",
       green: "bg-green-200",
       darkergreen: "bg-green-300",
+      lime: "bg-lime-200",
+      darkerlime: "bg-lime-300",
       blue: "bg-blue-200",
       darkerblue: "bg-blue-300",
+      cyan: "bg-cyan-200",
+      darkercyan: "bg-cyan-300",
       yellow: "bg-yellow-200",
       darkeryellow: "bg-yellow-300",
+      orange: "bg-orange-200",
+      darkerorange: "bg-orange-300",
       purple: "bg-purple-200",
       darkerpurple: "bg-purple-300",
       pink: "bg-pink-200",
       darkerpink: "bg-pink-300",
+      slate: "bg-slate-200",
+      darkerslate: "bg-slate-300",
     };
 
     const [actualColor, setActualColor] = useState(
