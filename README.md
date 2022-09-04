@@ -118,6 +118,7 @@ The dashboard is the main page of the app, where you can create, edit, and delet
 # Contact
 
 Email: mateusdc@proton.me
+
 Discord: Monkagoras#1790
 
 ---
@@ -232,6 +233,7 @@ O dashboard é a página principal do aplicativo, onde você pode criar, editar 
 # Contato
 
 Email: mateusdc@proton.me
+
 Discord: Monkagoras#1790
 
 </div>
