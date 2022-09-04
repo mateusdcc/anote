@@ -150,7 +150,6 @@ export default function TextEditor() {
   const [showTextEditor, setShowTextEditor] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";
     getNotes().then((data) => {
       setNotes(data);
       setNonFilteredNotes(data);
@@ -519,7 +518,7 @@ export default function TextEditor() {
   return (
     <div>
       <div className="lg:ml-56">
-        <div className="flex flex-row">
+        <div className="flex overflow-y-hidden flex-row">
           <div className="flex top-0 w-screen min-h-screen flex-col lg:w-1/3 mr-2">
             <div className="flex flex-row lg:ml-2 lg:mb-6 items-center justify-evenly">
               <h1 className="font-elmessiri font-sm"> All Notes </h1>
