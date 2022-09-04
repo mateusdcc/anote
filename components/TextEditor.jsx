@@ -140,16 +140,27 @@ export default function TextEditor() {
   const [notes, setNotes] = useState([]);
   const [uniqueTags, setUniqueTags] = useState([]);
   const [tagsWithColors, setTagsWithColors] = useState({});
-  const [selectedNote, setSelectedNote] = useState(null);
   const [nonFilteredNotes, setNonFilteredNotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("All"); // Tag filter
   const [activeName, setActiveName] = useState("All"); // Name filter
   const [filteredNotesByTag, setFilteredNotesByTag] = useState([]);
   const [ToastContent, setToastContent] = useState(null);
-  const [showTextEditor, setShowTextEditor] = useState(false);
 
   useEffect(() => {
+    supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session) {
+        setToastContent("You have been logged out");
+      } else {
+        setToastContent(
+          "You have been logged back in. Refreshing your page..."
+        );
+        setTimeout(() => {
+          setToastContent(null);
+          window.location.reload();
+        }, 2000);
+      }
+    });
     getNotes().then((data) => {
       setNotes(data);
       setNonFilteredNotes(data);
@@ -523,7 +534,7 @@ export default function TextEditor() {
             <div className="flex flex-row lg:ml-2 lg:mb-6 items-center justify-evenly">
               <h1 className="font-elmessiri font-sm"> All Notes </h1>
               <button
-                className="hidden lg:flex right-0"
+                className="en lg:flex right-0"
                 onClick={() => {
                   setEditorProps({
                     id: null,

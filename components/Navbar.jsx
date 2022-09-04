@@ -8,10 +8,18 @@ export default function Navbar() {
   useEffect(() => {
     setUserLoggedIn(supabase.auth.user() !== null);
 
+    if (userLoggedIn) {
+      window.location.href = "/dashboard";
+    }
+
     supabase.auth.onAuthStateChange((_event, session) => {
       setUserLoggedIn(session !== null);
+
+      if (session) {
+        window.location.href = "/dashboard";
+      }
     });
-  }, []);
+  }, [userLoggedIn]);
 
   return (
     <div className="navbar shadow-sm fixed top-0 bg-base-100">
