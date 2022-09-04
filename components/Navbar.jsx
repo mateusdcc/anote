@@ -83,7 +83,7 @@ export default function Navbar() {
               </a>
             </Link>
           )}
-          <Link href={userLoggedIn ? "/dashboard" : "/login"}>
+          <Link href={userLoggedIn ? "/dashboard" : "/register"}>
             <a className="btn rounded-md text-gray-700 text-sm font-elmessiri">
               Get started
             </a>
