@@ -478,7 +478,7 @@ export default function TextEditor() {
           >
             <Markdown source={"# " + actualTitle + "\n" + actualContent} />
           </div>
-          <div className="flex flex-row fixed mb-2 bottom-0 items-end right-0 justify-end">
+          <div className="flex flex-row fixed mb-2 lg:mr-4 bottom-0 items-end right-0 justify-end">
             <button
               onClick={() => {
                 if (props.id) {
