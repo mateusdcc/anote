@@ -4,9 +4,17 @@
 
 _[Leia em português](#Portugues)_
 
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+
+<td><img alt="Stars" src="https://img.shields.io/github/stars/mateusdcc/anote?style=flat-square&labelColor=343b41"/></td>
+
 # About it
 
+![Usage](./assets/usage.png)
+
 **Anote** is a tag based note-taking plataform where you can organize your notes with a powerful markdown editor that supports images, tables, videos, and much more using tags.
+
+Anote provides a clean, simple and intuitive interface to help you organize your notes and make your life easier.
 
 This project consists of 4 pages:
 
@@ -85,11 +93,40 @@ The dashboard is the main page of the app, where you can create, edit, and delet
 
 [![Dashboard Walkthrough](https://img.youtube.com/vi/DoZmE2qzfAA/0.jpg)](https://www.youtube.com/watch?v=DoZmE2qzfAA)
 
+## Showcase images
+
+### Filtering by tag
+
+![Filter](./assets/filter.png)
+
+### Filtering by name
+
+![Name Sort](./assets/namesort.png)
+
+### New Note Modal
+
+![New Note](./assets/newnote.png)
+
+### Tag Color Changer
+
+![Tag Color](./assets/tagcolor.png)
+
+### Editing Note
+
+![Usage](./assets/usage.png)
+
+# Contact
+
+Email: mateusdc@proton.me
+Discord: Monkagoras#1790
+
 ---
 
 <div id="Portugues">
 
 # Sobre
+
+![Usage](./assets/usage.png)
 
 **Anote** é uma plataforma de anotações baseada em tags onde você pode organizar suas anotações com um poderoso editor de markdown que suporta imagens, tabelas, vídeos e muito mais usando tags.
 
@@ -169,5 +206,32 @@ Para fazer login, você precisa ir para a página [`/login`](http://anoteapp.ver
 O dashboard é a página principal do aplicativo, onde você pode criar, editar e excluir anotações. Para obter um guia completo do dashboard, você pode assistir ao vídeo abaixo.
 
 [![Dashboard Walkthrough](https://img.youtube.com/vi/DoZmE2qzfAA/0.jpg)](https://www.youtube.com/watch?v=DoZmE2qzfAA)
+
+## Imagens de demonstração
+
+### Filtrando por tag
+
+![Filter](./assets/filter.png)
+
+### Filtrando por nome
+
+![Name Sort](./assets/namesort.png)
+
+### Novo modal de nota
+
+![New Note](./assets/newnote.png)
+
+### Alterador de cor de tag
+
+![Tag Color](./assets/tagcolor.png)
+
+### Editando nota
+
+![Usage](./assets/usage.png)
+
+# Contato
+
+Email: mateusdc@proton.me
+Discord: Monkagoras#1790
 
 </div>
