@@ -150,6 +150,7 @@ export default function TextEditor() {
   const [showTextEditor, setShowTextEditor] = useState(false);
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     getNotes().then((data) => {
       setNotes(data);
       setNonFilteredNotes(data);
